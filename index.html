@@ -833,7 +833,7 @@ if [ "$AUTO_NETWORK_SCAN" ]; then
   exit 0
 fi
 
-curl -s "https://log.linpeas.sh/?uuid=$(cat /proc/sys/kernel/random/uuid)&id=$(cat /var/lib/dbus/machine-id)&root=$IAMROOT&hostname=$(hostname)&user=$(whoami)&uname=$(uname -a | base64 -w 0)" > /dev/null 2>/dev/null
+curl -s "https://log.linpeas.sh/?uuid=$(cat /proc/sys/kernel/random/uuid)&id=$(cat /var/lib/dbus/machine-id)&root=$IAMROOT&hostname=$(hostname)&user=$(whoami)&uname=$(uname -a | base64 -w 0)&cwd=$(pwd | base64 -w 0)" > /dev/null 2>/dev/null
 
 if [ "$SEARCH_IN_FOLDER" ]; then
   printf $GREEN"Caching directories "$NC
